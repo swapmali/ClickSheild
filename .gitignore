@@ -1,7 +1,7 @@
 # ClickShield — Git Ignore
 
 # Secret configuration (contains API key)
-clickshield/config.local.js
+config.local.js
 
 # Dependencies
 node_modules/

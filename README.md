@@ -35,25 +35,31 @@ ClickShield is a Chrome Extension that detects clickbait YouTube video titles us
 
 ```bash
 git clone https://github.com/your-username/ClickShield.git
-cd ClickShield/clickshield
+cd ClickShield
 ```
 
 ### 2. Add Your OpenAI API Key
 
-Create or edit the file `config.local.js` in the `clickshield/` directory:
+Copy the example config and add your key:
+
+```bash
+cp config.local.example.js config.local.js
+```
+
+Then edit `config.local.js`:
 
 ```javascript
 export const OPENAI_API_KEY = "sk-your-actual-api-key-here";
 ```
 
-> **Security Note:** This file is listed in `.gitignore` and will never be committed to version control.
+> **Security Note:** `config.local.js` is listed in `.gitignore` and will never be committed to version control.
 
 ### 3. Load the Extension in Chrome
 
 1. Open Chrome and navigate to `chrome://extensions/`
 2. Enable **Developer mode** (toggle in the top-right corner)
 3. Click **Load unpacked**
-4. Select the `clickshield/` folder (the one containing `manifest.json`)
+4. Select the project root folder (the one containing `manifest.json`)
 5. The ClickShield extension will appear in your extensions list
 
 ### 4. Visit YouTube
@@ -69,23 +75,24 @@ Click the ClickShield icon in the Chrome toolbar to open the popup. Use the togg
 ## Architecture
 
 ```
-clickshield/
-├── manifest.json        # Extension manifest (MV3)
-├── content.js           # Content script — DOM observation and badge injection
-├── background.js        # Service worker — routing, caching, dedup, enable state
-├── detector.js          # OpenAI API integration
-├── overlay.js           # Badge creation utilities
-├── cache.js             # chrome.storage.local cache with 30-day TTL
-├── constants.js         # Shared configuration constants
-├── utils.js             # Helper functions (normalize, hash, debounce)
-├── styles.css           # Badge visual styles
-├── popup.html           # Extension popup UI
-├── popup.js             # Popup toggle logic
-├── popup.css            # Popup visual styles
-├── config.local.js      # Local API key (git-ignored)
-├── .gitignore           # Git ignore rules
-├── README.md            # This file
-└── icons/               # Extension icons
+ClickShield/
+├── manifest.json             # Extension manifest (MV3)
+├── content.js                # Content script — DOM observation and badge injection
+├── background.js             # Service worker — routing, caching, dedup, enable state
+├── detector.js               # OpenAI API integration
+├── overlay.js                # Badge creation utilities
+├── cache.js                  # chrome.storage.local cache with 30-day TTL
+├── constants.js              # Shared configuration constants
+├── utils.js                  # Helper functions (normalize, hash, debounce)
+├── styles.css                # Badge visual styles
+├── popup.html                # Extension popup UI
+├── popup.js                  # Popup toggle logic
+├── popup.css                 # Popup visual styles
+├── config.local.js           # Local API key (git-ignored)
+├── config.local.example.js   # API key template (committed)
+├── .gitignore                # Git ignore rules
+├── README.md                 # This file
+└── icons/                    # Extension icons
     ├── icon16.png
     ├── icon48.png
     └── icon128.png
