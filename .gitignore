@@ -1,0 +1,17 @@
+# ClickShield — Git Ignore
+
+# Secret configuration (contains API key)
+clickshield/config.local.js
+
+# Dependencies
+node_modules/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor artifacts
+*.swp
+*.swo
+.idea/
+.vscode/

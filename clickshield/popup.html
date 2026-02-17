@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=300">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <div class="header">
+      <img src="icons/icon48.png" alt="" class="logo">
+      <div class="title-group">
+        <h1>ClickShield</h1>
+        <p class="tagline">Expose clickbait instantly</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="toggle-row">
+      <span class="toggle-label" id="status-label">Enabled</span>
+      <label class="switch">
+        <input type="checkbox" id="toggle" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <p class="hint" id="hint-text">Analyzing YouTube titles for clickbait.</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
